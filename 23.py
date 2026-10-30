@@ -1,19 +1,13 @@
-def find_and_replace(input_file, output_file, target, replacement, case_sensitive=True):
-    with open(input_file, 'r', encoding='utf-8') as f:
-        text = f.read()
-    
-    if case_sensitive:
-        modified_text = text.replace(target, replacement)
+def compute_hcf(x, y):
+# choose the smaller number
+    if x > y:
+        smaller = y
     else:
-        # Case-insensitive replacement
-        import re
-        # re.IGNORECASE ensures all matches regardless of case
-        modified_text = re.sub(target, replacement, text, flags=re.IGNORECASE)
-    
-    # Write to new file
-    with open(output_file, 'w', encoding='utf-8') as f:
-        f.write(modified_text)
-    
-    print(f"Replacement complete. Modified text saved to {output_file}")
-
-find_and_replace("sample.txt", "output.txt", "Hello", "hiii", case_sensitive=False)
+        smaller = x
+    for i in range(1, smaller+1):
+        if((x % i == 0) and (y % i == 0)):
+            hcf = i 
+    return hcf
+num1 = 54 
+num2 = 24
+print("The H.C.F. is", compute_hcf(num1, num2))

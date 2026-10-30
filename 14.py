@@ -1,12 +1,18 @@
-import re
-
-
-def is_strong_password(password: str) -> bool:
-	"""Return True when password meets all strength requirements."""
-	pattern = r"^(?=.{8,}$)(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_-]).+$"
-	return re.fullmatch(pattern, password) is not None
-
-
-if __name__ == "__main__":
-	password = input("Enter a password: ")
-	print(is_strong_password(password))
+num = int(input("Enter a number: "))
+ # define a flag variable
+flag = False
+if num == 1:
+ print(f"{num}, is not a prime number")
+elif num > 1:
+ # check for factors
+  for i in range(2, num):
+    if (num % i) == 0:
+      flag = True     
+    break
+ # if factor is found, set flag to True
+ # break out of loop
+ # check if flag is True
+if flag:
+    print(f"{num}, is not a prime number")
+else:
+    print(f"{num}, is a prime number")
